@@ -1,0 +1,9 @@
+{
+  "name": "landing",
+  "version": "1.0.0",
+  "description": "landing page for pp_trello_reactjs",
+  "main": "app.js",
+  "repository": "git@github.com:vs0uz4/pp_trello_reactjs.git",
+  "author": "vs0uz4",
+  "license": "ISC"
+}
