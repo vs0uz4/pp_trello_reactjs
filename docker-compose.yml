@@ -1,0 +1,29 @@
+version: '2'
+
+volumes:
+  landing-config:
+    driver: local
+  landing-cache:
+    driver: local
+  landing-local:
+    driver: local
+  landing-yarn:
+    driver: local
+  landing-npm:
+    driver: local
+
+services:
+  web:
+    image: ambientum/node:8
+    container_name: landing-web
+    command: gulp
+    ports:
+      - "8080:8080"
+      - "35729:35729"
+    volumes:
+      - .:/var/www/app
+      - landing-config:/home/ambientum/.config
+      - landing-cache:/home/ambientum/.cache
+      - landing-local:/home/ambientum/.local
+      - landing-yarn:/home/ambientum/.yarn
+      - landing-npm:/home/ambientum/.npm
