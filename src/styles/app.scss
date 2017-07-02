@@ -82,3 +82,46 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
     }
 }
+
+.footer {
+    background: #ededed;
+    img {
+        padding: 5em 0;
+        height: 15.5em;
+    }
+    .footer-nav {
+        list-style: none;
+        margin: 0 auto 3em auto;
+        li {
+            display: inline-block;
+            margin-right: 1.2em;
+            color: #737373;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        a {
+            color: #737373;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+    }
+    .social {
+        a {
+            &:first-child{
+                margin-left: 1em;
+            }
+            margin-right: 0.6em;
+            font-size: 2.7em;
+            color: #04c89f;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
