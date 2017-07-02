@@ -5,3 +5,80 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
 }
+
+.navbar {
+    &.navbar-default {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .navbar-brand {
+        img {
+            height: 2em;
+        }
+    }
+
+    .navbar-nav {
+        li {
+            a {
+                text-transform: uppercase;
+                opacity: 0.6;
+                font-size: 1.1em;
+                font-weight: 600;
+                color: white;
+                &:hover {
+                    color: #fff;
+                    opacity: 1;
+                    transition: all 0.3s;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    background: linear-gradient(to right, #02d4a7, #01d4a0);
+    color: white;
+    padding: 11em 0;
+    height: 600px;
+    h1 {
+        font-size: 4.3em;
+    }
+    h2 {
+        font-weight: 300;
+    }
+    .btn-signup {
+        color: #0bb297;
+        background: #fff;
+        border: 1px solid #fff;
+        transition: all 0.3s;
+        margin: 1.5em 0;
+        &:hover, &:focus {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+    }
+}
+
+.header-svg {
+    position: relative;
+    .sep {
+        top: -99px;
+        bottom: auto;
+        position: absolute;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 7.2em;
+        path {
+            fill: #fff;
+        }
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+}
