@@ -26,9 +26,9 @@ import del from 'del'
 
 const PATH = {
     htmlSrc: 'src/',
-    sassSrc: 'src/styles',
-    imgSrc: 'src/images',
-    jsSrc: 'src/javascripts',
+    sassSrc: 'src/styles/',
+    imgSrc: 'src/images/',
+    jsSrc: 'src/javascripts/',
 
     buildDir: 'build/',
     revDir: 'rev/',
@@ -42,7 +42,7 @@ const onError = (Error) => {
 
 const igniteServer = () => {
     return connect.server({
-        root: 'src',
+        root: 'build',
         livereload: true
     })
 }
@@ -76,6 +76,9 @@ gulp.task('build-css', () => {
 gulp.task('build-js', () => {
     return gulp
         .src(PATH.jsSrc.concat('*.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(plumber({ errorHandler: onError }))
         .pipe(changed(PATH.buildDir.concat('/js')))
         .pipe(gulp.dest(PATH.buildDir.concat('/js')))
@@ -85,9 +88,6 @@ gulp.task('build-js', () => {
 gulp.task('build-img', () => {
     return gulp
         .src(PATH.imgSrc.concat('**/*.+(png|jpg|jpeg|gif|svg)'))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
         .pipe(changed(PATH.buildDir.concat('/images')))
         .pipe(gulp.dest(PATH.buildDir.concat('/images')))
         .pipe(livereload())
@@ -95,8 +95,8 @@ gulp.task('build-img', () => {
 
 gulp.task('watch', () => {
     livereload.listen(35729)
-    gulp.watch(PATH.htmlSrc.concat('/*.html'), ['build-html'])
-    gulp.watch(PATH.sassSrc, ['build-css'])
+    gulp.watch(PATH.htmlSrc.concat('*.html'), ['build-html'])
+    gulp.watch(PATH.sassSrc.concat('**'), ['build-css'])
     gulp.watch(PATH.jsSrc.concat('**/*.js'), ['build-js'])
     gulp.watch(PATH.imgSrc.concat('**/*.+(png|jpg|jpeg|gif|svg)'), ['build-img'])
 })
